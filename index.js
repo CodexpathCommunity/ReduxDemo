@@ -26,23 +26,7 @@ const initialCakeState = {
 const initialIceCreamState = {
   numOfIceCreams: 20,
 };
-//when im studiing code and catch my mind straying away i'll run a callback fuction to get focused.
-// const reducer = (state = initialState, action) => {
-//   switch (action.type) {
-//     case BUY_CAKE:
-//       return {
-//         ...state,
-//         numOfCakes: state.numOfCakes - 1,
-//       };
-//     case BUY_ICECREAM:
-//       return {
-//         ...state,
-//         numOfIceCreams: state.numOfIceCreams - 1,
-//       };
-//     default:
-//       return state;
-//   }
-// };
+
 const iceCreamReducer = (state = initialIceCreamState, action) => {
   switch (action.type) {
     case BUY_ICECREAM:
@@ -74,7 +58,12 @@ const store = createStore(rootReducers, applyMiddleware(logger));
 console.log("initial state", store.getState());
 const unsubscribe = store.subscribe(() => {});
 
-// store.dispath(buyCake());
+store.dispatch(buyIceCream());
+store.dispatch(buyCake());
+store.dispatch(buyCake());
+store.dispatch(buyCake());
+store.dispatch(buyIceCream());
+store.dispatch(buyCake());
 // store.dispath(buyCake());
 // store.dispath(buyCake());
 // store.dispath(buyIceCream());
